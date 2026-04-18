@@ -1,16 +1,37 @@
 {
+  "cli": {
+    "version": ">= 10.0.0",
+    "appVersionSource": "local"
+  },
   "build": {
     "preview": {
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "NODE_ENV": "production"
       }
     },
     "production": {
       "android": {
-        "buildType": "apk"
+        "buildType": "app-bundle"
       },
       "ios": {
         "simulator": false
+      },
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "track": "internal"
       }
     }
   }
